@@ -19,7 +19,7 @@ def main():
         data = connect.recv(BUFFER).decode()
 
         if len(data) > 0:
-            print("Received data")
+            print("Received data: " + data)
         
         break
 
