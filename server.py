@@ -15,16 +15,20 @@ def main():
     sock.bind((HOST, PORT))
     sock.listen(5) # number of client connections we can accept
 
-    while True:
-        connect, address = sock.accept()
-        data = connect.recv(BUFFER).decode()
 
-        if len(data) > 0:
-            print("Received data: " + data)
-        
-        break
+    connect, address = sock.accept()
+
+    with connect:
+        print(f"Connected by {address}")
+        while True:
+            data = connect.recv(BUFFER).decode()
+            if len(data) > 0:
+                print("Received data: " + data)
+            else:
+                break
 
     connect.close()
+
         
 
 
