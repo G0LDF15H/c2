@@ -1,6 +1,6 @@
 import socket
 
-HOST = "127.0.0.1"
+HOST = "0.0.0.0"
 PORT = 12345
 BUFFER = 1024
 
