@@ -1,11 +1,11 @@
 import socket
 
 HOST = ""
-PORT = 3790
+PORT = 80
 # client
 def main():
-    HOST = raw_input("give me a host to connect to :3: ")
-    print("running client side")
+    HOST = raw_input("give me a host to connect to :3: ") # for python 2.7.5
+    print("running client side with: " + HOST + " and " + PORT)
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client.connect((HOST, PORT))
 
