@@ -1,6 +1,6 @@
 import socket
 
-HOST = "localhost"
+HOST = "127.0.0.1"
 PORT = 80
 BUFFER = 1024
 
@@ -13,7 +13,7 @@ def main():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     sock.bind((HOST, PORT))
-    sock.listen(1)
+    sock.listen(5) # number of client connections we can accept
 
     while True:
         connect, address = sock.accept()
