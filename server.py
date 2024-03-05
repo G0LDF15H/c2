@@ -12,7 +12,7 @@ def main():
     # AF_INET is the address family ipv4, SOCK_STREAM is the socket protocol TCP
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    sock.bind(HOST, PORT)
+    sock.bind((HOST, PORT))
 
     while True:
         connect, address = sock.accept()
