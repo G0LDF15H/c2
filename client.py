@@ -13,7 +13,7 @@ def main():
     client.connect((HOST, PORT))
     # send something
     while True: 
-        something = input("what do you wnant to send to this not evil thingy (enter to exit): ")
+        something = raw_input("what do you wnant to send to this not evil thingy (enter to exit): ")
         if something == "":
             break
         client.send(something.encode("UTF-8"))
