@@ -24,7 +24,7 @@ def main():
         
         break
 
-    connect.close()
+    sock.close()
         
 
 
