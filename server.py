@@ -11,7 +11,7 @@ def main():
 
     # AF_INET is the address family ipv4, SOCK_STREAM is the socket protocol TCP
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock = setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    sock.sendetsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
     sock.bind((HOST, PORT))
     sock.listen(5) # number of client connections we can accept
