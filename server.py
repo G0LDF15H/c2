@@ -13,6 +13,7 @@ def main():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     sock.bind((HOST, PORT))
+    sock.listen(1)
 
     while True:
         connect, address = sock.accept()
