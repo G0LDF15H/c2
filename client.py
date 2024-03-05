@@ -16,7 +16,7 @@ def main():
         something = input("what do you wnant to send to this not evil thingy (enter to exit): ")
         if something == "":
             break
-        client.send(something.encode())
+        client.send(something.encode("UTF-8"))
         
     client.close()
 

@@ -22,7 +22,7 @@ def main():
     with connect:
         print(f"Connected by {address}")
         while True:
-            data = connect.recv(BUFFER).decode()
+            data = connect.recv(BUFFER).decode("UTF-8")
             if len(data) > 0:
                 print("Received data: " + data)
             else:
