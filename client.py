@@ -1,6 +1,6 @@
 import socket
 
-HOST = ''
+HOST = ""
 PORT = 3790
 # client
 def main():
