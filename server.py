@@ -1,7 +1,7 @@
 import socket
 
 HOST = "127.0.0.1"
-PORT = 80
+PORT = 12345
 BUFFER = 1024
 
 

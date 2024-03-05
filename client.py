@@ -1,7 +1,7 @@
 import socket
 
 HOST = "10.0.2.4"
-PORT = 80
+PORT = 12345
 # client
 def main():
     # HOST = raw_input("give me a host to connect to :3: ") # for python 2.7.5
