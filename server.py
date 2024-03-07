@@ -37,7 +37,7 @@ def main():
             break
         print("**********sending command!!! please wait :3")
         connect.send(command.encode())
-        output = connect.recv(BUFFER.decode("UTF-8"))
+        output = connect.recv(command.decode("UTF-8"))
         print("**********print results: ")
         print(output)
         
