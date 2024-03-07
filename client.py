@@ -25,7 +25,7 @@ def main():
         commmand = command.split(" ")
          # EXDCUTING COMMAND
         # getoutput returns output stdout and stderr of executing cmd in a shell
-        print("command is: ", end="")
+        print("command is: ")
         print(command)
         if command == "":
             print("uh oh spaghetti o")
