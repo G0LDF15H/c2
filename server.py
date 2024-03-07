@@ -35,10 +35,10 @@ def main():
         if command == "":
             # connect.send("command".encode())
             break
-        print("**********sending command!!! please wait :3")
+        print("$ evil shell :3 > **********sending command!!! please wait :3")
         connect.send(command.encode())
         output = connect.recv(BUFFER).decode("UTF-8")
-        print("**********print results: ")
+        print("$ evil shell :3 > **********print results: ")
         print(output)
         
         # if len(data) > 0:
