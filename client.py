@@ -25,11 +25,9 @@ def main():
         commmand = command.split(" ")
          # EXDCUTING COMMAND
         # getoutput returns output stdout and stderr of executing cmd in a shell
-        print("command is (if you want to quit, type in SPAGHETTI): ")
         print(command)
         if command == "":
             print("uh oh spaghetti o your command is empty")
-        if command == "SPAGHETTI":
             break
         try: 
             output = subprocess.check_output(command, stderr=subprocess.STDOUT)
