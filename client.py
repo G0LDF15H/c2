@@ -3,7 +3,7 @@ import os
 import subprocess
 
 HOST = "10.0.2.4"
-PORT = 12345
+PORT = 80
 BUFFER = 1024
 # client
 def main():

