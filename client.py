@@ -19,15 +19,17 @@ def main():
     # password
     client.send("Input your password: ".encode())
     password = client.recv(BUFFER).decode("UTF-8")
-    incorrect_count = 0
-    while password != CORRECT_PASS:
-        incorrect_count += 1
-        client.send("Incorrect password. Please try again: ".encode())
-        password = client.recv(BUFFER).decode("UTF-8")
-        if incorrect_count == 3:
-            break
+    # while password != CORRECT_PASS:
+    #     incorrect_count += 1
+    #     client.send("Incorrect password. Please try again: ".encode())
+    #     password = client.recv(BUFFER).decode("UTF-8")
+    #     if incorrect_count >= 3:
+    #         break
 
-    if incorrect_count == 3:
+    # if incorrect_count >= 3:
+    #     client.send("Incorrect password. Closing connection")
+    #     client.close()
+    if password != CORRECT_PASS:
         client.send("Incorrect password. Closing connection")
         client.close()
     else: 
@@ -40,7 +42,6 @@ def main():
             # data = raw_input("input a command: ")
             
             command = client.recv(BUFFER).decode("UTF-8")
-            commmand = command.split(" ")
             # EXDCUTING COMMAND
             # getoutput returns output stdout and stderr of executing cmd in a shell
             print(command)

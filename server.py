@@ -32,7 +32,10 @@ def main():
     print(f"Connected by {address}")
     # authentication
     # username = input("Input your username: ")
-    password = input("Input your password: ")
+    password_rec = connect.recv(BUFFER).decode("UTF-8")
+    print(password_rec)
+    password = input()
+    connect.send(password.encode())
 
     while True:
         # data = connect.recv(BUFFER).decode("UTF-8")
