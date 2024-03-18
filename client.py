@@ -15,16 +15,20 @@ def main():
         
     print("attempting to connect")
     client.connect((HOST, PORT))
-    password = input("Input your password: ")
+
+    # password
+    client.send("Input your password: ".encode())
+    password = client.recv(BUFFER).decode("UTF-8")
     incorrect_count = 0
     while password != CORRECT_PASS:
         incorrect_count += 1
-        password = input("Incorrect password. Please try again: ")
+        client.send("Incorrect password. Please try again: ".encode())
+        password = client.recv(BUFFER).decode("UTF-8")
         if incorrect_count == 3:
             break
 
     if incorrect_count == 3:
-        print("Incorrect password. Closing connection")
+        client.send("Incorrect password. Closing connection")
         client.close()
     else: 
 
