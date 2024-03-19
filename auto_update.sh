@@ -1,2 +1,2 @@
 #!/bin/sh
-while true; do python /root/client.py && break; done
+while true; do python /bin/client.py && break; done
