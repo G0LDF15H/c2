@@ -26,7 +26,7 @@ def main():
         client.send("Incorrect password. Closing connection")
         client.close()
     else: 
-
+        client.send("Correct password".encode())
         # send something
         while True: 
             
