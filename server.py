@@ -30,15 +30,16 @@ def main():
     connect, address = sock.accept()
     
     print(f"Connected by {address}")
-    # authentication
-    # username = input("Input your username: ")
-    password_rec = connect.recv(BUFFER).decode("UTF-8")
-    print(password_rec)
-    password = input()
-    connect.send(password.encode())
 
+    # authentication
+    password_rec = connect.recv(BUFFER).decode("UTF-8")
+    password = input(password_rec)
+    connect.send(password.encode())
+    output = connect.recv(BUFFER).decode("UTF-8")
+    print(output)
+
+    # remote shell
     while True:
-        # data = connect.recv(BUFFER).decode("UTF-8")
         command = input("$ ")
         if command == "":
             break

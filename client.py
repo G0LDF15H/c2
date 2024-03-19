@@ -22,12 +22,13 @@ def main():
 
     password = crypt.crypt(password, SALT)
 
+    # AUTHENTICATION
     if password != CORRECT_PASS:
         client.send("Incorrect password. Closing connection")
         client.close()
     else: 
         client.send("Correct password".encode())
-        # send something
+        # SHELL 
         while True: 
             
             command = client.recv(BUFFER).decode("UTF-8")
