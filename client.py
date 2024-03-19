@@ -24,9 +24,9 @@ def main():
     password = crypt.crypt(password, SALT)
 
     # AUTHENTICATION
-    if password != CORRECT_PASS or password == "":
+    if password != CORRECT_PASS:
         # only 1 attempt else the connection closes because skill issue if mistype
-        client.send("Incorrect password or Empty Input. Closing connection")
+        client.send("Incorrect password. Closing connection")
         client.close()
     else: 
         client.send("Correct password".encode())
