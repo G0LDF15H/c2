@@ -1,5 +1,4 @@
 import socket
-import crypt
 # the host is 0.0.0.0 : 
 '''
 lcoal host translates into 127.0.0.1 which will always be the IP address of the machine 
@@ -10,9 +9,6 @@ lcoal host translates into 127.0.0.1 which will always be the IP address of the 
 HOST = "0.0.0.0"
 PORT = 80
 BUFFER = 1024
-# USER = ""
-
-
 
 # server set up
 def main():
@@ -24,8 +20,6 @@ def main():
 
     sock.bind((HOST, PORT))
     sock.listen(5) # number of client connections we can accept
-
-   # connect, address = sock.accept()
 
     connect, address = sock.accept()
     
